@@ -38,7 +38,7 @@ interface Stats {
   recentParticipants: Participant[];
   upcomingTouchpoints: Array<{
     id: string;
-    nextTouchpoint: Date;
+    nextTouchpoint: Date | null;
     participant: {
       id: string;
       firstName: string;
@@ -205,7 +205,7 @@ export default function CoachDashboard({ user, stats }: { user: User; stats: Sta
                         </div>
                         <div className="text-sm text-gray-500">
                           <Calendar className="h-3 w-3 inline mr-1" />
-                          {formatDate(touchpoint.nextTouchpoint)}
+                          {touchpoint.nextTouchpoint ? formatDate(touchpoint.nextTouchpoint) : 'No date set'}
                         </div>
                       </div>
                       <Link href={`/participants/${touchpoint.participant.id}/session`}>
