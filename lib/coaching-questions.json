@@ -1,0 +1,448 @@
+{
+  "motivation": {
+    "primary_questions": [
+      "1. \u201cTell me about your current motivation to find work. What is driving you at this stage of your life?\u201d",
+      "2. \u201cWhen you think about working, what feels most exciting or meaningful to you?\u201d",
+      "3. \u201cWhat actions have you taken in the last two weeks related to finding a job or improving your skills?\u201d",
+      "4. \u201cWhat challenges or concerns sometimes make it difficult for you to stay motivated?\u201d",
+      "5. \u201cHow do you keep yourself moving forward when things feel slow or difficult?\u201d"
+    ],
+    "follow_up_probes": [
+      "\u201cCan you tell me more about that?\u201d",
+      "\u201cWhat helped you stay focused in similar situations in the past?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "Very low motivation; no ownership; expresses no interest in finding work; fully reliant on external help.",
+        "evidence": "\u201cStates they have no interest in working right now.\u201d \u201cHas taken no actions despite repeated support.\u201d \u201cSays family will solve it.\u201d",
+        "red_flags": "Refusal to engage; openly dismissive; blames others entirely; displays hopelessness or resistance."
+      },
+      {
+        "score": 2,
+        "description": "Very limited motivation; engages only when prompted; avoids responsibility; no independent action.",
+        "evidence": "\u201cOnly considers options when I prompt them.\u201d \u201cDid not attempt any tasks suggested last session.\u201d",
+        "red_flags": "Avoids accountability; excuses for lack of action; unwillingness to take first steps."
+      },
+      {
+        "score": 3,
+        "description": "Some motivation but inconsistent; expresses desire but limited follow-through; needs repeated reminders.",
+        "evidence": "\u201cExpressed interest in job search but has not followed through.\u201d \u201cStarted a CV but didn\u2019t finish.\u201d",
+        "red_flags": "Inconsistent behaviours; low follow-through; poor time management."
+      },
+      {
+        "score": 4,
+        "description": "Developing motivation; emerging responsibility; has taken 1\u20132 small actions; requires structure & guidance.",
+        "evidence": "\u201cCompleted registration on job portal.\u201d \u201cStarted updating CV after reminder.\u201d",
+        "red_flags": "Easily discouraged; dependent on structure and reminders; slow momentum."
+      },
+      {
+        "score": 5,
+        "description": "Good motivation; engaged in some job search activities; open to feedback; shows willingness to improve.",
+        "evidence": "\u201cApplied to 2 roles this week.\u201d \u201cOpen to feedback on CV.\u201d \u201cAttended training session.\u201d",
+        "red_flags": "May still struggle with confidence; occasional inconsistency."
+      },
+      {
+        "score": 6,
+        "description": "Strong motivation; consistent actions and follow-through; takes initiative; demonstrates discipline.",
+        "evidence": "\u201cCreates weekly job search plan.\u201d \u201cFollows deadlines without reminders.\u201d \u201cResponds quickly to messages.\u201d",
+        "red_flags": "May take on too much or overcommit; risk of burnout from high activity."
+      },
+      {
+        "score": 7,
+        "description": "Very high motivation; highly proactive; strong internal drive; accountable and self-managing.",
+        "evidence": "\u201cInitiates tasks independently.\u201d \u201cResearches employers proactively.\u201d \u201cCommunicates updates without being asked.\u201d",
+        "red_flags": "Very few red flags; ensure expectations remain realistic."
+      }
+    ]
+  },
+  "career": {
+    "primary_questions": [
+      "1. \u201cWhich sectors or roles interest you the most right now, and why?\u201d",
+      "2. \u201cWhat do you know about the requirements or skills needed for these roles in the UAE market?\u201d",
+      "3. \u201cHave you spoken to anyone or researched the companies in Dubai or wider UAE where you might want to work?\u201d",
+      "4. \u201cWhat salary range do you see as acceptable for an entry-level position in your chosen field?\u201d",
+      "5. \u201cWhat does a successful career path look like for you over the next 1\u20132 years?\u201d"
+    ],
+    "follow_up_probes": [
+      "\u201cWhat have you learned from your research?\u201d",
+      "\u201cHow did you decide that these roles are a good fit?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "No career direction; unclear interests; unrealistic expectations about roles or salaries; confused goals.",
+        "evidence": "\u201cCandidate unable to name any roles or sectors.\u201d \u201cStates desire for senior role without qualifications.\u201d \u201cNo understanding of salary ranges.\u201d",
+        "red_flags": "Unrealistic demands; confused/contradictory goals; expects high salary without experience; unwillingness to explore entry-level options."
+      },
+      {
+        "score": 2,
+        "description": "Minimal awareness; generic interests; limited understanding of job requirements; unrealistic views remain.",
+        "evidence": "\u201cShows interest in general areas (e.g., \u2018office job\u2019) but no clarity.\u201d \u201cCannot explain job requirements.\u201d",
+        "red_flags": "Generic answers; relies on stereotypes of roles; expects unrealistic working hours/conditions; little/no research."
+      },
+      {
+        "score": 3,
+        "description": "Emerging awareness; basic idea but unclear pathways; little or no research; uncertainty in choices.",
+        "evidence": "\u201cInterested in customer service roles but unsure about skills needed.\u201d \u201cHas looked briefly but no concrete research.\u201d",
+        "red_flags": "Limited understanding of sector norms; doubts about suitability; misalignment between interests and required skills."
+      },
+      {
+        "score": 4,
+        "description": "Partial clarity; has direction but needs validation; understands some requirements; refining options.",
+        "evidence": "\u201cIdentified retail/admin roles as suitable.\u201d \u201cUnderstands need for communication skills.\u201d \u201cKnows entry-level requirements.\u201d",
+        "red_flags": "Needs help validating pathways; confusion between similar roles; unclear long-term direction."
+      },
+      {
+        "score": 5,
+        "description": "Clear career direction; understands entry-level expectations; realistic goals and pathways.",
+        "evidence": "\u201cHas researched entry-level customer service/admin roles.\u201d \u201cUnderstands expected salary range and working hours.\u201d \u201cKnows required qualifications.\u201d",
+        "red_flags": "Minor uncertainty about progression; limited understanding of employer expectations."
+      },
+      {
+        "score": 6,
+        "description": "Strong awareness; researched roles/companies; understands required skills, qualifications, and expectations.",
+        "evidence": "\u201cIdentified 2\u20133 target sectors.\u201d \u201cCan list skills required.\u201d \u201cHas researched companies in UAE.\u201d",
+        "red_flags": "Needs to maintain realistic expectations; may be overly selective about roles."
+      },
+      {
+        "score": 7,
+        "description": "Fully aligned career plan; detailed understanding of sector; realistic expectations about growth, salary, and pathway.",
+        "evidence": "\u201cClear 1\u20132 year plan.\u201d \u201cUnderstands growth opportunities.\u201d \u201cHas researched multiple companies and market trends.\u201d",
+        "red_flags": "Very few red flags; ensure plan is achievable within current skillset."
+      }
+    ]
+  },
+  "search": {
+    "primary_questions": [
+      "1. \u201cHow do you usually search for job vacancies? Which platforms or channels do you use?\u201d",
+      "2. \u201cDo you have a CV or profile that is updated and suitable for the type of job you want?\u201d",
+      "3. \u201cHave you applied for any roles recently? How did you prepare for the application or interview?\u201d",
+      "4. \u201cWhat support do you feel you need to improve your applications or interviews?\u201d",
+      "5. \u201cHow confident do you feel when speaking to an employer or recruiter?\u201d"
+    ],
+    "follow_up_probes": [
+      "\u201cTell me about the last interview you attended.\u201d",
+      "\u201cHow did you prepare for it?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "No readiness; no CV; no independent applications; unaware of job search processes.",
+        "evidence": "\u201cNo CV available.\u201d \u201cHas never visited any job portal.\u201d \u201cDoes not know how to apply for a job.\u201d",
+        "red_flags": "Zero job search activity; confusion about process; complete dependency; lack of digital/literacy skills."
+      },
+      {
+        "score": 2,
+        "description": "Very low readiness; CV outdated/irrelevant; limited awareness of portals; poor interview understanding.",
+        "evidence": "\u201cCV last updated more than 1 year ago.\u201d \u201cKnows about portals but never used them.\u201d \u201cCannot explain basic interview questions.\u201d",
+        "red_flags": "CV inaccuracies; outdated information; fear/avoidance of applications; very limited digital confidence."
+      },
+      {
+        "score": 3,
+        "description": "Basic readiness; some CV effort; limited application activity; lacks structured search strategy.",
+        "evidence": "\u201cCV drafted but incomplete.\u201d \u201cHas applied to 1\u20132 jobs in last month.\u201d \u201cUnderstands basic interview questions but lacks depth.\u201d",
+        "red_flags": "Sporadic actions; lacks structure; applies blindly; low application activity."
+      },
+      {
+        "score": 4,
+        "description": "Developing readiness; CV acceptable but needs polishing; sporadic search; basic interview preparation.",
+        "evidence": "\u201cCV format is clean but needs tailoring.\u201d \u201cUses portals occasionally.\u201d \u201cHas practiced basic interview responses.\u201d",
+        "red_flags": "CV not tailored; relies on one portal; long gaps in applying; nervousness in interviews."
+      },
+      {
+        "score": 5,
+        "description": "Good readiness; updated CV; applies regularly; understands application and interview basics.",
+        "evidence": "\u201cUpdated CV.\u201d \u201cApplies weekly.\u201d \u201cCan articulate strengths and experience.\u201d",
+        "red_flags": "Sometimes generic applications; limited follow-up."
+      },
+      {
+        "score": 6,
+        "description": "Strong readiness; confident using job portals; tailors applications; communicates effectively in interviews.",
+        "evidence": "\u201cTailors CV to role.\u201d \u201cUses multiple portals.\u201d \u201cConfident and structured interview responses.\u201d",
+        "red_flags": "May be overly selective; expects rapid results; slight overconfidence."
+      },
+      {
+        "score": 7,
+        "description": "Very high readiness; independent search and application management; strong CV; interview-ready.",
+        "evidence": "\u201cHas improved CV formats.\u201d \u201cTracks applications independently.\u201d \u201cConfident handling both competency and behavioural interviews.\u201d",
+        "red_flags": "Very few; ensure expectations are realistic and sustained."
+      }
+    ]
+  },
+  "employability": {
+    "primary_questions": [
+      "1. \u201cTell me about a situation where you worked with others to complete a task. What role did you play?\u201d",
+      "2. \u201cHow do you manage your time and commitments when you have important tasks or deadlines?\u201d",
+      "3. \u201cHow comfortable are you communicating with different types of people\u2014for example, managers, colleagues, or customers?\u201d",
+      "4. \u201cWhat strengths do you feel you bring to a workplace?\u201d",
+      "5. \u201cWhat areas do you think you need to develop to succeed at work?\u201d"
+    ],
+    "follow_up_probes": [
+      "\u201cHow did you handle disagreements?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "Very low employability; major behavioural or communication issues; poor reliability and professionalism.",
+        "evidence": "\u201cArrived late with no explanation.\u201d \u201cAvoids eye contact and gives short answers.\u201d \u201cShows no understanding of workplace behaviour.\u201d",
+        "red_flags": "Aggressive tone; inappropriate language; visible disinterest; major attendance/punctuality issues."
+      },
+      {
+        "score": 2,
+        "description": "Limited employability; struggles with teamwork; inconsistent communication; difficulty following instructions.",
+        "evidence": "\u201cNeeded repeated instructions.\u201d \u201cAppears uncomfortable working with others.\u201d \u201cGives unclear or short responses.\u201d",
+        "red_flags": "Difficulty understanding basic tasks; resistant to teamwork; communication barriers (language, confidence)."
+      },
+      {
+        "score": 3,
+        "description": "Emerging employability; basic communication; some teamwork ability; reliability gaps.",
+        "evidence": "\u201cCommunicates at basic level.\u201d \u201cParticipates when prompted.\u201d \u201cMissed one scheduled commitment.\u201d",
+        "red_flags": "Reliability concerns; low initiative; easily disengaged."
+      },
+      {
+        "score": 4,
+        "description": "Developing skills; communicates clearly most of the time; capable of basic responsibilities.",
+        "evidence": "\u201cResponds clearly to questions.\u201d \u201cCompleted tasks in previous jobs or programmes.\u201d \u201cShows willingness to learn.\u201d",
+        "red_flags": "Some nervousness; occasional misunderstandings; requires structure."
+      },
+      {
+        "score": 5,
+        "description": "Good employability; reliable, punctual, professional; good communication and teamwork.",
+        "evidence": "\u201cConsistently punctual.\u201d \u201cCommunicates clearly.\u201d \u201cDemonstrates positive attitude.\u201d",
+        "red_flags": "Minor gaps in confidence; occasional hesitation with tasks."
+      },
+      {
+        "score": 6,
+        "description": "Strong workplace skills; communicates well; adapts to expectations; reliable under pressure.",
+        "evidence": "\u201cHandles questions confidently.\u201d \u201cHas worked in high-pressure roles.\u201d \u201cAdapts quickly to instructions.\u201d",
+        "red_flags": "Overconfidence; may take on too much; selective about teams or colleagues."
+      },
+      {
+        "score": 7,
+        "description": "Highly employable; polished professional behaviour; dependable; demonstrates leadership potential.",
+        "evidence": "\u201cShows initiative.\u201d \u201cStructured and confident communication.\u201d \u201cDescribed leading or coordinating tasks in past roles.\u201d",
+        "red_flags": "Few red flags; monitor for unrealistic expectations about role level or speed of promotion."
+      }
+    ]
+  },
+  "learning": {
+    "primary_questions": [
+      "1. \u201cIn the past year, have you completed any training or learning\u2014online or in person?\u201d",
+      "2. \u201cWhat type of skills or courses do you feel would help you move towards your career goals?\u201d",
+      "3. \u201cHow do you typically approach learning new things\u2014do you set aside time or follow a schedule?\u201d",
+      "4. \u201cAre you open to joining training or workshops if they support your goals?\u201d",
+      "5. \u201cWhat has helped you learn best in the past\u2014videos, practice, coaching, classroom, online?\u201d"
+    ],
+    "follow_up_probes": [
+      "\u201cWhat stopped you from completing past training?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "No engagement; resists learning; unwilling to participate in training or development activities.",
+        "evidence": "\u201cStates they do not see value in training.\u201d \u201cRefused previous workshops.\u201d \u201cShows no interest in skill improvement.\u201d",
+        "red_flags": "Open resistance; negative comments about learning; unwillingness to attend any training; mindset barrier."
+      },
+      {
+        "score": 2,
+        "description": "Very low engagement; attends only when required; minimal effort; lacks commitment to development.",
+        "evidence": "\u201cAttended mandatory sessions only.\u201d \u201cNo follow-up on assigned learning tasks.\u201d",
+        "red_flags": "Passive participation; excuses to avoid sessions; lack of basic digital/literacy confidence."
+      },
+      {
+        "score": 3,
+        "description": "Emerging engagement; sees partial value; sporadic attendance; limited follow-through.",
+        "evidence": "\u201cJoined one session voluntarily.\u201d \u201cExpressed interest but did not complete exercises.\u201d",
+        "red_flags": "Inconsistency; dependence on reminders; motivation fluctuates."
+      },
+      {
+        "score": 4,
+        "description": "Developing engagement; willing to participate; completes basic learning tasks with guidance.",
+        "evidence": "\u201cCompleted online course when prompted.\u201d \u201cOpen to discussing learning needs.\u201d \u201cActively listens in sessions.\u201d",
+        "red_flags": "Needs structure; may forget tasks; limited initiative in self-led learning."
+      },
+      {
+        "score": 5,
+        "description": "Good engagement; actively participates; applies learning; open to feedback and improvement.",
+        "evidence": "\u201cCompleted two courses.\u201d \u201cAsked for feedback on progress.\u201d \u201cTakes notes during sessions.\u201d",
+        "red_flags": "Minor confidence dips; can be easily discouraged if progress is slow."
+      },
+      {
+        "score": 6,
+        "description": "Strong engagement; independently seeks learning; consistent growth mindset; takes responsibility.",
+        "evidence": "\u201cRegistered spontaneously for training.\u201d \u201cSeeks additional resources.\u201d \u201cPractices skills between sessions.\u201d",
+        "red_flags": "Potential to overcommit; needs prioritisation support."
+      },
+      {
+        "score": 7,
+        "description": "Highly engaged learner; proactive, reflective; self-directed development; quickly applies learning.",
+        "evidence": "\u201cMaintains personal development plan.\u201d \u201cShares reflections from learning.\u201d \u201cActively improves skills.\u201d",
+        "red_flags": "Few red flags; ensure expectations are realistic and sustainable."
+      }
+    ]
+  },
+  "financial": {
+    "primary_questions": [
+      "1. \u201cHow do you currently manage your monthly expenses and responsibilities?\u201d",
+      "2. \u201cWhat financial commitments do you need to consider when taking a job (transport, childcare, family support)?\u201d",
+      "3. \u201cHave you used or applied for any support programmes, such as Nafis or CDA allowances?\u201d",
+      "4. \u201cHow confident are you in managing a salary once you start working?\u201d",
+      "5. \u201cWhat would change financially for you if you started working full-time?\u201d"
+    ],
+    "follow_up_probes": [
+      "\u201cWhat\u2019s the biggest financial challenge you face right now?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "No financial independence; fully dependent on family; no awareness of basic costs or responsibilities.",
+        "evidence": "\u201cDoes not know approximate living costs.\u201d \u201cFamily pays all expenses.\u201d \u201cNo personal budget or financial tasks.\u201d",
+        "red_flags": "Significant dependency; unrealistic salary expectations; no concept of budgeting; unwilling to contribute to household."
+      },
+      {
+        "score": 2,
+        "description": "Very limited independence; aware of some costs but not responsible; poor understanding of salary vs. expenses.",
+        "evidence": "\u201cAware of bills but not involved.\u201d \u201cThinks entry-level salary should cover luxury expenses.\u201d",
+        "red_flags": "Unrealistic expectations; financial irresponsibility; poor prioritisation."
+      },
+      {
+        "score": 3,
+        "description": "Basic awareness; understands essential expenses; limited experience managing money; inconsistent habits.",
+        "evidence": "\u201cUnderstands rent/transport costs.\u201d \u201cOccasionally contributes to household.\u201d",
+        "red_flags": "Poor financial planning; impulse spending; inconsistency."
+      },
+      {
+        "score": 4,
+        "description": "Developing responsibility; manages small expenses; basic budgeting; aware of realistic salary ranges.",
+        "evidence": "\u201cPays for personal items.\u201d \u201cTracks basic expenses.\u201d \u201cUnderstands entry-level salary ranges.\u201d",
+        "red_flags": "Over-reliance on family decisions; mild salary misinformation."
+      },
+      {
+        "score": 5,
+        "description": "Good financial responsibility; manages personal budget; understands trade-offs; realistic financial expectations.",
+        "evidence": "\u201cHas personal budget.\u201d \u201cUnderstands difference between gross and net income.\u201d \u201cPrioritises essentials.\u201d",
+        "red_flags": "Minor over-optimism; some pressure from family obligations."
+      },
+      {
+        "score": 6,
+        "description": "Strong financial independence; actively manages spending; plans for future; understands employment impact on finances.",
+        "evidence": "\u201cSaves money monthly.\u201d \u201cUnderstands benefit of stable employment.\u201d \u201cManages own commitments.\u201d",
+        "red_flags": "None major; possible stress from financial obligations."
+      },
+      {
+        "score": 7,
+        "description": "Highly financially responsible; disciplined budgeting; financially independent; understands long-term implications.",
+        "evidence": "\u201cManages all personal expenses independently.\u201d \u201cHas savings goals.\u201d \u201cUnderstands long-term financial planning.\u201d",
+        "red_flags": "Few red flags; ensure goals are realistic."
+      }
+    ]
+  },
+  "resilience": {
+    "primary_questions": [
+      "1. \u201cHow do you usually handle stress or challenges when things don\u2019t go as planned?\u201d",
+      "2. \u201cTell me about a time you overcame a challenge recently.\u201d",
+      "3. \u201cHow confident do you feel when speaking in a professional setting?\u201d",
+      "4. \u201cWhat helps you stay calm or focused during pressure?\u201d",
+      "5. \u201cHow comfortable are you adapting to change or new situations?\u201d"
+    ],
+    "follow_up_probes": [
+      "\u201cWhat support helps you bounce back?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "Very low confidence; highly anxious or withdrawn; struggles to cope with stress; poor self-management.",
+        "evidence": "\u201cAvoids eye contact.\u201d \u201cLow voice, minimal responses.\u201d \u201cUnable to describe personal strengths.\u201d \u201cReports giving up easily.\u201d",
+        "red_flags": "High anxiety, emotional instability, signs of distress; avoidance behaviour; may require additional support beyond employment coaching."
+      },
+      {
+        "score": 2,
+        "description": "Limited confidence; easily discouraged; difficulty managing emotions; inconsistent behaviour.",
+        "evidence": "\u201cExpresses fear of interviews.\u201d \u201cOverwhelmed by small challenges.\u201d \u201cNeeds reassurance frequently.\u201d",
+        "red_flags": "Low tolerance for feedback; frequent emotional dips; reliance on others to cope."
+      },
+      {
+        "score": 3,
+        "description": "Basic confidence; able to communicate but hesitant; limited resilience; struggles under pressure.",
+        "evidence": "\u201cAnswers questions with hesitation.\u201d \u201cDescribes giving up when faced with challenges.\u201d \u201cGets upset when corrected.\u201d",
+        "red_flags": "Unstable motivation; self-criticism; difficulty sustaining effort."
+      },
+      {
+        "score": 4,
+        "description": "Developing confidence; willing to try; recovers slowly from setbacks; requires structure.",
+        "evidence": "\u201cOpen to trying new tasks.\u201d \u201cReflects on past difficulties.\u201d \u201cNeeds support to stay on track.\u201d",
+        "red_flags": "May take setbacks personally; inconsistent follow-through."
+      },
+      {
+        "score": 5,
+        "description": "Good confidence; manages stress reasonably; recovers from setbacks; self-aware and responsive to feedback.",
+        "evidence": "\u201cCommunicates clearly.\u201d \u201cShows examples of overcoming challenges.\u201d \u201cAccepts feedback respectfully.\u201d",
+        "red_flags": "Occasional dips under pressure; still developing deeper resilience."
+      },
+      {
+        "score": 6,
+        "description": "Strong confidence; self-managing; handles challenges constructively; good emotional control.",
+        "evidence": "\u201cProvides examples of solving problems independently.\u201d \u201cBalances commitments.\u201d \u201cDemonstrates consistency.\u201d",
+        "red_flags": "May push themselves too hard; risk of burnout; perfectionist tendencies."
+      },
+      {
+        "score": 7,
+        "description": "High resilience; confident communicator; strong coping skills; consistent self-management and emotional maturity.",
+        "evidence": "\u201cArticulates strengths clearly.\u201d \u201cHas strategies for dealing with setbacks.\u201d \u201cMaintains composure and focus.\u201d",
+        "red_flags": "Few red flags; ensure confidence is grounded in realistic expectations."
+      }
+    ]
+  },
+  "support": {
+    "primary_questions": [],
+    "follow_up_probes": [
+      "\u201cHow do you usually get around Dubai?\u201d",
+      "\u201cWhat would make it easier?\u201d"
+    ],
+    "scoring_guide": [
+      {
+        "score": 1,
+        "description": "No social support; environment creates strong barriers to employment; significant family or personal constraints.",
+        "evidence": "\u201cFamily does not support working.\u201d \u201cLiving situation prevents job search.\u201d \u201cOngoing family conflict or obligations.\u201d",
+        "red_flags": "Family pressure against working; controlling environment; serious caregiving responsibilities; unsafe/stressful environment."
+      },
+      {
+        "score": 2,
+        "description": "Limited support; household responsibilities affect job readiness; low encouragement from family/friends.",
+        "evidence": "\u201cFamily expects candidate to prioritise home duties.\u201d \u201cLimited support for childcare or transport.\u201d",
+        "red_flags": "Conflicting obligations; poor work-life balance; discouragement from job seeking."
+      },
+      {
+        "score": 3,
+        "description": "Basic support; family is neutral; some responsibilities may interfere; inconsistent encouragement.",
+        "evidence": "\u201cFamily neither supportive nor obstructive.\u201d \u201cOccasional childcare/transport issues.\u201d",
+        "red_flags": "Unpredictable availability; lack of reliable support system."
+      },
+      {
+        "score": 4,
+        "description": "Developing support; environment mostly stable; occasional challenges but manageable with planning.",
+        "evidence": "\u201cHas someone who supports job search.\u201d \u201cChildcare/transport manageable with notice.\u201d",
+        "red_flags": "Occasional disruptions; needs structured planning."
+      },
+      {
+        "score": 5,
+        "description": "Good support; family encourages employment; reliable environment; manageable commitments.",
+        "evidence": "\u201cFamily encourages job search.\u201d \u201cHas consistent transport/childcare support.\u201d",
+        "red_flags": "Minor coordination issues only."
+      },
+      {
+        "score": 6,
+        "description": "Strong support network; family/environment actively contributes to job readiness; stable home situation.",
+        "evidence": "\u201cFamily providing help with transport.\u201d \u201cEncouraged to attend interviews/training.\u201d \u201cSafe and supportive environment.\u201d",
+        "red_flags": "Possible over-reliance on family; otherwise few red flags."
+      },
+      {
+        "score": 7,
+        "description": "Highly supportive environment; strong positive influence; resources and assistance available consistently.",
+        "evidence": "\u201cFamily assists with logistics.\u201d \u201cEncourages career development.\u201d \u201cStable environment with minimal barriers.\u201d",
+        "red_flags": "Few red flags; ensure independence develops appropriately."
+      }
+    ]
+  }
+}

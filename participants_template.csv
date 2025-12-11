@@ -1,0 +1,6 @@
+firstName,lastName,gender,ageRange,education,emirate,phone,email
+Ahmed,Al Mansoori,Male,25-29,Bachelor's Degree,Dubai,+971501234567,ahmed@example.com
+Fatima,Al Mazrouei,Female,30-34,Master's Degree,Abu Dhabi,+971509876543,fatima@example.com
+Mohammed,Al Hashimi,Male,18-24,High School,Sharjah,,mohammed@example.com
+Sara,Al Falasi,Female,35-39,Bachelor's Degree,Dubai,+971507654321,sara@example.com
+Ali,Al Nuaimi,Male,40-44,Diploma,Ajman,+971503456789,

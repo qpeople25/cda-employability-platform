@@ -1,0 +1,156 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Hashed password
+  firstName String
+  lastName  String
+  role      String   // "admin" | "coach"
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Coach assignments
+  assignedParticipants CoachAssignment[]
+  sessions             Session[]
+  auditLogs            AuditLog[]
+}
+
+model CoachAssignment {
+  id            String   @id @default(cuid())
+  coachId       String
+  coach         User     @relation(fields: [coachId], references: [id], onDelete: Cascade)
+  participantId String
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  assignedAt    DateTime @default(now())
+  assignedBy    String?  // Admin who made the assignment
+  
+  @@unique([coachId, participantId])
+}
+
+model Participant {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  gender    String
+  ageRange  String
+  education String
+  emirate   String
+  phone     String?
+  email     String?
+  createdAt DateTime @default(now())
+
+  sessions    Session[]
+  barriers    Barrier[]
+  assignments CoachAssignment[]
+}
+
+model Session {
+  id            String   @id @default(cuid())
+  participantId String
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  coachId       String
+  coach         User     @relation(fields: [coachId], references: [id])
+  
+  occurredAt    DateTime @default(now())
+  sessionType   String   @default("baseline") // "baseline" | "follow_up"
+  
+  // Coach scores (1-7)
+  scoreMotivation     Int
+  scoreCareer         Int
+  scoreSearch         Int
+  scoreEmployability  Int
+  scoreLearning       Int
+  scoreFinancial      Int
+  scoreResilience     Int
+  scoreSupport        Int
+  
+  // Coach notes per domain
+  notesMotivation     String
+  notesCareer         String
+  notesSearch         String
+  notesEmployability  String
+  notesLearning       String
+  notesFinancial      String
+  notesResilience     String
+  notesSupport        String
+  
+  // Computed fields
+  readinessIndex    Int
+  readinessCategory String // "A" | "B" | "C"
+  
+  // Optional fields
+  nextTouchpoint    DateTime?
+  notes             String?
+  consentObtained   Boolean   @default(false)
+  
+  // Goals (simple text for MVP)
+  shortTermGoal1    String?
+  shortTermGoal2    String?
+  longTermGoal      String?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  barriers          Barrier[]
+}
+
+model BarrierBank {
+  id              String   @id @default(cuid())
+  code            String   @unique
+  label           String
+  category        String
+  description     String?
+  defaultSeverity String   @default("Medium") // "High" | "Medium" | "Low"
+  dimension       String?  // Can be one of the 8 domains or null
+  active          Boolean  @default(true)
+  
+  barriers        Barrier[]
+}
+
+model Barrier {
+  id            String   @id @default(cuid())
+  sessionId     String
+  session       Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  participantId String
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  barrierBankId String
+  barrierBank   BarrierBank @relation(fields: [barrierBankId], references: [id])
+  
+  severity      String   // "High" | "Medium" | "Low"
+  source        String   // "auto" | "manual"
+  dimension     String?  // One of the 8 domains or null
+  notes         String?
+  status        String   @default("active") // "active" | "resolved"
+  
+  createdAt     DateTime @default(now())
+}
+
+model AuditLog {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  userEmail     String
+  userRole      String
+  action        String   // "create", "update", "delete"
+  entityType    String   // "participant", "session", "barrier"
+  entityId      String
+  changes       String?  // JSON string of what changed
+  timestamp     DateTime @default(now())
+  
+  @@index([entityType, entityId])
+  @@index([userId])
+  @@index([timestamp])
+}
