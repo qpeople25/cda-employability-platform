@@ -79,7 +79,7 @@ export function DimensionTab({
   const suggestedBarriers = getSuggestedBarriers(dimensionKey, score, barrierBank);
   const currentBarrierIds = barriers.map(b => b.barrierBankId);
   const unappliedSuggestions = suggestedBarriers.filter(
-    s => !currentBarrierIds.includes(s.id)
+    s => !currentBarrierIds.includes(s.barrierBankId)
   );
   
   const handleAddManualBarrier = () => {
@@ -108,7 +108,7 @@ export function DimensionTab({
   
   const handleApplySuggestion = (suggestion: any) => {
     onAddBarrier({
-      barrierBankId: suggestion.id,
+      barrierBankId: suggestion.barrierBankId,
       code: suggestion.code,
       label: suggestion.label,
       severity: suggestion.defaultSeverity as BarrierSeverity,
@@ -357,7 +357,7 @@ export function DimensionTab({
             </div>
             <div className="grid grid-cols-1 gap-3">
               {unappliedSuggestions.map((suggestion) => (
-                <div key={suggestion.id} className="flex items-center justify-between p-3 bg-white rounded-lg border border-yellow-200">
+                <div key={suggestion.barrierBankId} className="flex items-center justify-between p-3 bg-white rounded-lg border border-yellow-200">
                   <span className="font-medium text-gray-900">{suggestion.label}</span>
                   <Button
                     size="sm"
