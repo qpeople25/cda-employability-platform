@@ -89,14 +89,14 @@ async function getAnalyticsData() {
   
   // Average scores by dimension
   const avgScores = sessions.length > 0 ? {
-    motivation: Math.round(sessions.reduce((sum, s) => sum + s.motivationScore, 0) / sessions.length),
-    career: Math.round(sessions.reduce((sum, s) => sum + s.careerScore, 0) / sessions.length),
-    search: Math.round(sessions.reduce((sum, s) => sum + s.searchScore, 0) / sessions.length),
-    employability: Math.round(sessions.reduce((sum, s) => sum + s.employabilityScore, 0) / sessions.length),
-    learning: Math.round(sessions.reduce((sum, s) => sum + s.learningScore, 0) / sessions.length),
-    financial: Math.round(sessions.reduce((sum, s) => sum + s.financialScore, 0) / sessions.length),
-    resilience: Math.round(sessions.reduce((sum, s) => sum + s.resilienceScore, 0) / sessions.length),
-    support: Math.round(sessions.reduce((sum, s) => sum + s.supportScore, 0) / sessions.length),
+    motivation: Math.round(sessions.reduce((sum, s) => sum + s.scoreMotivation, 0) / sessions.length),
+    career: Math.round(sessions.reduce((sum, s) => sum + s.scoreCareer, 0) / sessions.length),
+    search: Math.round(sessions.reduce((sum, s) => sum + s.scoreSearch, 0) / sessions.length),
+    employability: Math.round(sessions.reduce((sum, s) => sum + s.scoreEmployability, 0) / sessions.length),
+    learning: Math.round(sessions.reduce((sum, s) => sum + s.scoreLearning, 0) / sessions.length),
+    financial: Math.round(sessions.reduce((sum, s) => sum + s.scoreFinancial, 0) / sessions.length),
+    resilience: Math.round(sessions.reduce((sum, s) => sum + s.scoreResilience, 0) / sessions.length),
+    support: Math.round(sessions.reduce((sum, s) => sum + s.scoreSupport, 0) / sessions.length),
   } : null;
   
   return {
