@@ -154,7 +154,7 @@ export function CoachingConversationTab({
                       variant={isBarrierAdded(suggestion.barrierBankId) ? "secondary" : "outline"}
                       onClick={() => {
                         if (!isBarrierAdded(suggestion.barrierBankId)) {
-                          onAddBarrier(suggestion);
+                          onAddBarrier({ ...suggestion, source: 'auto' as const });
                         }
                       }}
                       disabled={isBarrierAdded(suggestion.barrierBankId)}
