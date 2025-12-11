@@ -45,6 +45,7 @@ async function getCoachStats(coachId: string) {
     where: {
       coachId,
       nextTouchpoint: {
+        not: null,
         gte: new Date(),
       },
     },
