@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
-import { formatDate } from '@/lib/utils';
+import { formatDate, calculateAge } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { CreateParticipantDialog } from '@/components/participants/CreateParticipantDialog';
 import { FileDown, UserCircle } from 'lucide-react';
@@ -146,7 +146,7 @@ export default async function ParticipantsPage() {
                       {participant.gender}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {participant.ageRange}
+                      {participant.dateOfBirth ? calculateAge(participant.dateOfBirth) : 'N/A'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {participant.education}

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { generateCsv } from '@/lib/utils';
+import { generateCsv, calculateAge } from '@/lib/utils';
 
 export async function GET() {
   try {
@@ -13,7 +13,8 @@ export async function GET() {
       'first_name',
       'last_name',
       'gender',
-      'age_range',
+      'age',
+      'date_of_birth',
       'education',
       'emirate',
       'phone',
@@ -26,7 +27,8 @@ export async function GET() {
       p.firstName,
       p.lastName,
       p.gender,
-      p.ageRange,
+      p.dateOfBirth ? calculateAge(p.dateOfBirth) : '',
+      p.dateOfBirth ? p.dateOfBirth.toISOString().split('T')[0] : '',
       p.education,
       p.emirate,
       p.phone || '',

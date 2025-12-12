@@ -3,6 +3,7 @@ import { getCurrentUser } from '@/lib/auth';
 import { PremiumHeader } from '@/components/layout/PremiumHeader';
 import AnalyticsDashboard from '@/components/analytics/AnalyticsDashboard';
 import { prisma } from '@/lib/prisma';
+import { calculateAgeRange } from '@/lib/utils';
 
 async function getAnalyticsData() {
   // Get participants with sessions and barriers
@@ -66,7 +67,10 @@ async function getAnalyticsData() {
       return acc;
     }, {}),
     byAge: participants.reduce((acc: Record<string, number>, p) => {
-      acc[p.ageRange] = (acc[p.ageRange] || 0) + 1;
+      if (p.dateOfBirth) {
+        const ageRange = calculateAgeRange(p.dateOfBirth);
+        acc[ageRange] = (acc[ageRange] || 0) + 1;
+      }
       return acc;
     }, {}),
     byEmirate: participants.reduce((acc: Record<string, number>, p) => {
