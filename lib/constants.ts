@@ -87,3 +87,10 @@ export const EDUCATION_LEVELS = [
   'PhD',
   'Other',
 ];
+
+export const MARITAL_STATUS = [
+  'Single',
+  'Married',
+  'Divorced',
+  'Widowed',
+];
