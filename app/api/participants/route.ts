@@ -10,7 +10,7 @@ export async function POST(request: Request) {
         firstName: data.firstName,
         lastName: data.lastName,
         gender: data.gender,
-        ageRange: data.ageRange,
+        dateOfBirth: new Date(data.dateOfBirth),
         education: data.education,
         emirate: data.emirate,
         phone: data.phone || null,

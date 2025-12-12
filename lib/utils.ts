@@ -56,3 +56,36 @@ export function generateCsv(headers: string[], rows: (string | number | null | u
   
   return `${headerRow}\n${dataRows}`;
 }
+
+/**
+ * Calculate age from date of birth
+ */
+export function calculateAge(dateOfBirth: Date | string): number {
+  const dob = typeof dateOfBirth === 'string' ? new Date(dateOfBirth) : dateOfBirth;
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const monthDiff = today.getMonth() - dob.getMonth();
+  
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+    age--;
+  }
+  
+  return age;
+}
+
+/**
+ * Calculate age range bucket from date of birth
+ */
+export function calculateAgeRange(dateOfBirth: Date | string): string {
+  const age = calculateAge(dateOfBirth);
+  
+  if (age >= 18 && age <= 24) return '18-24';
+  if (age >= 25 && age <= 29) return '25-29';
+  if (age >= 30 && age <= 34) return '30-34';
+  if (age >= 35 && age <= 39) return '35-39';
+  if (age >= 40 && age <= 44) return '40-44';
+  if (age >= 45 && age <= 49) return '45-49';
+  if (age >= 50) return '50+';
+  
+  return 'Under 18';
+}

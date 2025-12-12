@@ -45,7 +45,7 @@ model Participant {
   firstName String
   lastName  String
   gender    String
-  ageRange  String
+  dateOfBirth DateTime // Changed from ageRange
   education String
   emirate   String
   phone     String?

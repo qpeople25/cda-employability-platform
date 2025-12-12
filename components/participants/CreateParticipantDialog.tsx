@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { EMIRATES, AGE_RANGES, GENDERS, EDUCATION_LEVELS, MARITAL_STATUS } from '@/lib/constants';
+import { EMIRATES, GENDERS, EDUCATION_LEVELS, MARITAL_STATUS } from '@/lib/constants';
 import { Plus } from 'lucide-react';
 
 export function CreateParticipantDialog() {
@@ -27,7 +27,7 @@ export function CreateParticipantDialog() {
     firstName: '',
     lastName: '',
     gender: '',
-    ageRange: '',
+    dateOfBirth: '', // Changed from ageRange
     education: '',
     emirate: '',
     phone: '',
@@ -60,7 +60,7 @@ export function CreateParticipantDialog() {
         firstName: '',
         lastName: '',
         gender: '',
-        ageRange: '',
+        dateOfBirth: '',
         education: '',
         emirate: '',
         phone: '',
@@ -137,19 +137,15 @@ export function CreateParticipantDialog() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="ageRange">Age Range *</Label>
-                <Select required value={formData.ageRange} onValueChange={(value) => setFormData({ ...formData, ageRange: value })}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select age range" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {AGE_RANGES.map((range) => (
-                      <SelectItem key={range} value={range}>
-                        {range}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="dateOfBirth">Date of Birth *</Label>
+                <Input
+                  id="dateOfBirth"
+                  type="date"
+                  required
+                  max={new Date().toISOString().split('T')[0]}
+                  value={formData.dateOfBirth}
+                  onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
+                />
               </div>
             </div>
             
