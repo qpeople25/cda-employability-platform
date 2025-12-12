@@ -24,23 +24,25 @@ export default function LoginPage() {
       const response = await fetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ email, password }),
       });
       
       const data = await response.json();
       
       if (data.success) {
+        console.log('Login successful, redirecting to:', data.user.role === 'admin' ? '/admin/dashboard' : '/coach/dashboard');
         // Redirect based on role
         if (data.user.role === 'admin') {
-          router.push('/admin/dashboard');
+          window.location.href = '/admin/dashboard';
         } else {
-          router.push('/coach/dashboard');
+          window.location.href = '/coach/dashboard';
         }
-        router.refresh();
       } else {
         setError(data.error || 'Invalid credentials');
       }
     } catch (error) {
+      console.error('Login error:', error);
       setError('Login failed. Please try again.');
     } finally {
       setIsLoading(false);
