@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { EMIRATES, AGE_RANGES, GENDERS, EDUCATION_LEVELS } from '@/lib/constants';
+import { EMIRATES, AGE_RANGES, GENDERS, EDUCATION_LEVELS, MARITAL_STATUS } from '@/lib/constants';
 import { Plus } from 'lucide-react';
 
 export function CreateParticipantDialog() {
@@ -32,6 +32,13 @@ export function CreateParticipantDialog() {
     emirate: '',
     phone: '',
     email: '',
+    // New fields
+    maritalStatus: '',
+    dependents: '0',
+    nationalServiceCompleted: false,
+    peopleOfDetermination: false,
+    conviction: false,
+    drivingLicense: false,
   });
   
   const handleSubmit = async (e: React.FormEvent) => {
@@ -58,6 +65,12 @@ export function CreateParticipantDialog() {
         emirate: '',
         phone: '',
         email: '',
+        maritalStatus: '',
+        dependents: '0',
+        nationalServiceCompleted: false,
+        peopleOfDetermination: false,
+        conviction: false,
+        drivingLicense: false,
       });
       router.refresh();
     } catch (error) {
@@ -170,6 +183,96 @@ export function CreateParticipantDialog() {
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+            
+            {/* NEW FIELDS SECTION */}
+            <div className="border-t pt-4 mt-2">
+              <h3 className="text-sm font-semibold mb-3 text-gray-700">Additional Information</h3>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="maritalStatus">Marital Status</Label>
+                  <Select value={formData.maritalStatus} onValueChange={(value) => setFormData({ ...formData, maritalStatus: value })}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {MARITAL_STATUS.map((status) => (
+                        <SelectItem key={status} value={status}>
+                          {status}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="dependents">Number of Dependents</Label>
+                  <Input
+                    id="dependents"
+                    type="number"
+                    min="0"
+                    value={formData.dependents}
+                    onChange={(e) => setFormData({ ...formData, dependents: e.target.value })}
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-3 mt-4">
+                {formData.gender === 'Male' && (
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      id="nationalService"
+                      checked={formData.nationalServiceCompleted}
+                      onChange={(e) => setFormData({ ...formData, nationalServiceCompleted: e.target.checked })}
+                      className="h-4 w-4 rounded border-gray-300"
+                    />
+                    <Label htmlFor="nationalService" className="font-normal cursor-pointer">
+                      National Service Completed
+                    </Label>
+                  </div>
+                )}
+                
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="pod"
+                    checked={formData.peopleOfDetermination}
+                    onChange={(e) => setFormData({ ...formData, peopleOfDetermination: e.target.checked })}
+                    className="h-4 w-4 rounded border-gray-300"
+                  />
+                  <Label htmlFor="pod" className="font-normal cursor-pointer">
+                    Person of Determination
+                  </Label>
+                </div>
+                
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="conviction"
+                    checked={formData.conviction}
+                    onChange={(e) => setFormData({ ...formData, conviction: e.target.checked })}
+                    className="h-4 w-4 rounded border-gray-300"
+                  />
+                  <Label htmlFor="conviction" className="font-normal cursor-pointer">
+                    Has Conviction Record
+                  </Label>
+                </div>
+                
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="driving"
+                    checked={formData.drivingLicense}
+                    onChange={(e) => setFormData({ ...formData, drivingLicense: e.target.checked })}
+                    className="h-4 w-4 rounded border-gray-300"
+                  />
+                  <Label htmlFor="driving" className="font-normal cursor-pointer">
+                    Has Driving License
+                  </Label>
+                </div>
+              </div>
             </div>
             
             <div className="space-y-2">

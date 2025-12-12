@@ -15,6 +15,13 @@ export async function POST(request: Request) {
         emirate: data.emirate,
         phone: data.phone || null,
         email: data.email || null,
+        // New fields
+        maritalStatus: data.maritalStatus || null,
+        dependents: data.dependents ? parseInt(data.dependents) : 0,
+        nationalServiceCompleted: data.nationalServiceCompleted || false,
+        peopleOfDetermination: data.peopleOfDetermination || false,
+        conviction: data.conviction || false,
+        drivingLicense: data.drivingLicense || false,
       },
     });
     
