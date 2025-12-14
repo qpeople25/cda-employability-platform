@@ -5,24 +5,30 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
     
+    const participantData: any = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      gender: data.gender,
+      education: data.education,
+      emirate: data.emirate,
+      phone: data.phone || null,
+      email: data.email || null,
+      // New fields
+      maritalStatus: data.maritalStatus || null,
+      dependents: data.dependents ? parseInt(data.dependents) : 0,
+      nationalServiceCompleted: data.nationalServiceCompleted || false,
+      peopleOfDetermination: data.peopleOfDetermination || false,
+      conviction: data.conviction || false,
+      drivingLicense: data.drivingLicense || false,
+    };
+    
+    // Only add dateOfBirth if provided
+    if (data.dateOfBirth) {
+      participantData.dateOfBirth = new Date(data.dateOfBirth);
+    }
+    
     const participant = await prisma.participant.create({
-      data: {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        gender: data.gender,
-        dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : null,
-        education: data.education,
-        emirate: data.emirate,
-        phone: data.phone || null,
-        email: data.email || null,
-        // New fields
-        maritalStatus: data.maritalStatus || null,
-        dependents: data.dependents ? parseInt(data.dependents) : 0,
-        nationalServiceCompleted: data.nationalServiceCompleted || false,
-        peopleOfDetermination: data.peopleOfDetermination || false,
-        conviction: data.conviction || false,
-        drivingLicense: data.drivingLicense || false,
-      },
+      data: participantData,
     });
     
     return NextResponse.json(participant);
