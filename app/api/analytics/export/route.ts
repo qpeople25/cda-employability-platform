@@ -4,6 +4,13 @@ import { getCurrentUser } from '@/lib/auth';
 import * as XLSX from 'xlsx';
 
 export async function GET(request: Request) {
+  // Temporarily disabled during migration to dateOfBirth
+  return NextResponse.json(
+    { error: 'Excel export is temporarily disabled. Please use CSV exports.' },
+    { status: 503 }
+  );
+  
+  /*
   try {
     const user = await getCurrentUser();
     
@@ -273,4 +280,5 @@ export async function GET(request: Request) {
       { status: 500 }
     );
   }
+  */
 }

@@ -100,6 +100,13 @@ async function validateParticipant(
 }
 
 export async function POST(request: Request) {
+  // Temporarily disabled during migration to dateOfBirth
+  return NextResponse.json(
+    { error: 'Bulk upload is temporarily disabled. Please create participants individually.' },
+    { status: 503 }
+  );
+  
+  /*
   try {
     const user = await getCurrentUser();
     
@@ -218,4 +225,5 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+  */
 }

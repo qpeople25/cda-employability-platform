@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Edit2, Save, X, History } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { formatDateTime } from '@/lib/utils';
+import { formatDateTime, calculateAge } from '@/lib/utils';
 
 interface ProfileTabProps {
   participant: {
@@ -15,7 +15,7 @@ interface ProfileTabProps {
     firstName: string;
     lastName: string;
     gender: string;
-    ageRange: string;
+    dateOfBirth?: Date | null;
     education: string;
     emirate: string;
     phone?: string | null;
@@ -28,7 +28,6 @@ interface ProfileTabProps {
 
 const VALID_GENDERS = ['Male', 'Female', 'Other'];
 const VALID_EMIRATES = ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah'];
-const VALID_AGE_RANGES = ['18-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50+'];
 const VALID_EDUCATION = ["High School", "Diploma", "Bachelor's Degree", "Master's Degree", "PhD", "Other"];
 
 export function ProfileTab({ participant, consentObtained, onConsentChange, onParticipantUpdate }: ProfileTabProps) {
@@ -40,7 +39,7 @@ export function ProfileTab({ participant, consentObtained, onConsentChange, onPa
     firstName: participant.firstName,
     lastName: participant.lastName,
     gender: participant.gender,
-    ageRange: participant.ageRange,
+    dateOfBirth: participant.dateOfBirth ? new Date(participant.dateOfBirth).toISOString().split('T')[0] : '',
     education: participant.education,
     emirate: participant.emirate,
     phone: participant.phone || '',
@@ -77,7 +76,7 @@ export function ProfileTab({ participant, consentObtained, onConsentChange, onPa
       firstName: participant.firstName,
       lastName: participant.lastName,
       gender: participant.gender,
-      ageRange: participant.ageRange,
+      dateOfBirth: participant.dateOfBirth ? new Date(participant.dateOfBirth).toISOString().split('T')[0] : '',
       education: participant.education,
       emirate: participant.emirate,
       phone: participant.phone || '',
@@ -181,20 +180,19 @@ export function ProfileTab({ participant, consentObtained, onConsentChange, onPa
             )}
           </div>
           <div className="space-y-2">
-            <Label>Age Range *</Label>
+            <Label>Date of Birth *</Label>
             {isEditing ? (
-              <Select value={formData.ageRange} onValueChange={(value) => setFormData({ ...formData, ageRange: value })}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {VALID_AGE_RANGES.map(a => (
-                    <SelectItem key={a} value={a}>{a}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Input 
+                type="date" 
+                value={formData.dateOfBirth} 
+                max={new Date().toISOString().split('T')[0]}
+                onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })} 
+              />
             ) : (
-              <Input value={formData.ageRange} disabled />
+              <Input 
+                value={formData.dateOfBirth ? `${formData.dateOfBirth} (Age: ${calculateAge(formData.dateOfBirth)})` : 'Not set'} 
+                disabled 
+              />
             )}
           </div>
           <div className="space-y-2">

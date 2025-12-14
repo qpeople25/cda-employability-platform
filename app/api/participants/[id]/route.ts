@@ -50,7 +50,7 @@ export async function PATCH(
       firstName,
       lastName,
       gender,
-      ageRange,
+      dateOfBirth,
       education,
       emirate,
       phone,
@@ -64,7 +64,7 @@ export async function PATCH(
         firstName,
         lastName,
         gender,
-        ageRange,
+        dateOfBirth: dateOfBirth ? new Date(dateOfBirth) : undefined,
         education,
         emirate,
         phone: phone || null,
@@ -74,7 +74,7 @@ export async function PATCH(
     
     // Track what changed
     const changes: Record<string, any> = {};
-    const fields = ['firstName', 'lastName', 'gender', 'ageRange', 'education', 'emirate', 'phone', 'email'];
+    const fields = ['firstName', 'lastName', 'gender', 'dateOfBirth', 'education', 'emirate', 'phone', 'email'];
     
     fields.forEach(field => {
       const oldValue = currentParticipant[field as keyof typeof currentParticipant];
