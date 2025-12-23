@@ -6,9 +6,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { DIMENSIONS } from '@/lib/constants';
+import { FACTORS } from '@/lib/constants';
 import { getSuggestedBarriers } from '@/lib/barriers';
-import { DimensionKey, BarrierSeverity } from '@/types';
+import { FactorKey, BarrierSeverity } from '@/types';
 import { Plus, X } from 'lucide-react';
 
 interface BarrierData {
@@ -17,13 +17,13 @@ interface BarrierData {
   label: string;
   severity: BarrierSeverity;
   source: 'auto' | 'manual';
-  dimension: DimensionKey | null;
+  factor: FactorKey | null;
   notes?: string;
 }
 
 interface CoachingConversationTabProps {
-  scores: Record<DimensionKey, number>;
-  notes: Record<DimensionKey, string>;
+  scores: Record<FactorKey, number>;
+  notes: Record<FactorKey, string>;
   barriers: BarrierData[];
   barrierBank: Array<{
     id: string;
@@ -31,10 +31,10 @@ interface CoachingConversationTabProps {
     label: string;
     category: string;
     defaultSeverity: string;
-    dimension: string | null;
+    factor: string | null;
   }>;
-  onScoreChange: (dimension: DimensionKey, score: number) => void;
-  onNotesChange: (dimension: DimensionKey, notes: string) => void;
+  onScoreChange: (dimension: FactorKey, score: number) => void;
+  onNotesChange: (dimension: FactorKey, notes: string) => void;
   onAddBarrier: (barrier: BarrierData) => void;
   onRemoveBarrier: (barrierBankId: string) => void;
 }
@@ -49,7 +49,7 @@ export function CoachingConversationTab({
   onAddBarrier,
   onRemoveBarrier,
 }: CoachingConversationTabProps) {
-  const [selectedDimensionForManualBarrier, setSelectedDimensionForManualBarrier] = useState<DimensionKey | null>(null);
+  const [selectedFactorForManualBarrier, setSelectedDimensionForManualBarrier] = useState<FactorKey | null>(null);
   const [showManualBarrierForm, setShowManualBarrierForm] = useState(false);
   const [manualBarrier, setManualBarrier] = useState({
     barrierBankId: '',
@@ -58,7 +58,7 @@ export function CoachingConversationTab({
   });
   
   const handleAddManualBarrier = () => {
-    if (!manualBarrier.barrierBankId || !selectedDimensionForManualBarrier) return;
+    if (!manualBarrier.barrierBankId || !selectedFactorForManualBarrier) return;
     
     const barrier = barrierBank.find(b => b.id === manualBarrier.barrierBankId);
     if (!barrier) return;
@@ -69,7 +69,7 @@ export function CoachingConversationTab({
       label: barrier.label,
       severity: manualBarrier.severity,
       source: 'manual',
-      dimension: selectedDimensionForManualBarrier,
+      factor: selectedFactorForManualBarrier,
       notes: manualBarrier.notes || undefined,
     });
     
@@ -88,9 +88,9 @@ export function CoachingConversationTab({
   
   return (
     <div className="space-y-8">
-      {DIMENSIONS.map((dimension) => {
+      {FACTORS.map((dimension) => {
         const suggestions = getSuggestedBarriers(dimension.key, scores[dimension.key], barrierBank);
-        const dimensionBarriers = barriers.filter(b => b.dimension === dimension.key);
+        const dimensionBarriers = barriers.filter(b => b.factor === dimension.key);
         
         return (
           <div key={dimension.key} className="border rounded-lg p-6 space-y-4">
@@ -196,7 +196,7 @@ export function CoachingConversationTab({
               </div>
             )}
             
-            {!showManualBarrierForm || selectedDimensionForManualBarrier !== dimension.key ? (
+            {!showManualBarrierForm || selectedFactorForManualBarrier !== dimension.key ? (
               <Button
                 type="button"
                 variant="outline"

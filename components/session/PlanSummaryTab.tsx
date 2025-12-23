@@ -5,8 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { DimensionKey, BarrierSeverity } from '@/types';
-import { DIMENSION_MAP } from '@/lib/constants';
+import { FactorKey, BarrierSeverity } from '@/types';
+import { FACTOR_MAP } from '@/lib/constants';
 import { 
   Target, 
   Calendar, 
@@ -25,7 +25,7 @@ interface BarrierData {
   label: string;
   severity: BarrierSeverity;
   source: 'auto' | 'manual';
-  dimension: DimensionKey | null;
+  factor: FactorKey | null;
   notes?: string;
 }
 
@@ -63,7 +63,7 @@ export function PlanSummaryTab({
   
   // Group barriers by dimension
   const barriersByDimension = barriers.reduce((acc, barrier) => {
-    const dimension = barrier.dimension || 'cross-cutting';
+    const dimension = barrier.factor || 'cross-cutting';
     if (!acc[dimension]) {
       acc[dimension] = [];
     }
@@ -73,7 +73,7 @@ export function PlanSummaryTab({
   
   const getDimensionLabel = (key: string) => {
     if (key === 'cross-cutting') return 'Cross-Cutting Barriers';
-    return DIMENSION_MAP[key as DimensionKey]?.label || key;
+    return FACTOR_MAP[key as FactorKey]?.label || key;
   };
   
   return (

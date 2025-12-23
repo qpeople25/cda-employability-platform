@@ -1,9 +1,9 @@
-import { DimensionKey, DimensionConfig } from '@/types';
+import { FactorKey, FactorConfig } from '@/types';
 
-export const DIMENSIONS: DimensionConfig[] = [
+export const FACTORS: FactorConfig[] = [
   {
     key: 'motivation',
-    label: 'Personal Mindset & Motivation',
+    label: 'Mindset & Motivation',
     description: 'Drive, enthusiasm, and commitment to finding employment',
     weight: 15,
   },
@@ -15,7 +15,7 @@ export const DIMENSIONS: DimensionConfig[] = [
   },
   {
     key: 'search',
-    label: 'Job Search Skills & Application Readiness',
+    label: 'Job Search Skills & Application',
     description: 'Ability to search for jobs and prepare applications',
     weight: 15,
   },
@@ -27,19 +27,19 @@ export const DIMENSIONS: DimensionConfig[] = [
   },
   {
     key: 'learning',
-    label: 'L&D Engagement',
+    label: 'Personal Development',
     description: 'Willingness to learn and develop new skills',
     weight: 10,
   },
   {
     key: 'financial',
-    label: 'Financial Independence & Responsibility',
+    label: 'Financial Independence',
     description: 'Financial management and independence',
     weight: 10,
   },
   {
     key: 'resilience',
-    label: 'Confidence, Resilience & Self-Management',
+    label: 'Confidence & Self-Management',
     description: 'Ability to handle setbacks and manage emotions',
     weight: 10,
   },
@@ -51,11 +51,11 @@ export const DIMENSIONS: DimensionConfig[] = [
   },
 ];
 
-export const DIMENSION_MAP: Record<DimensionKey, DimensionConfig> = 
-  DIMENSIONS.reduce((acc, dim) => {
-    acc[dim.key] = dim;
+export const FACTOR_MAP: Record<FactorKey, FactorConfig> = 
+  FACTORS.reduce((acc, factor) => {
+    acc[factor.key] = factor;
     return acc;
-  }, {} as Record<DimensionKey, DimensionConfig>);
+  }, {} as Record<FactorKey, FactorConfig>);
 
 export const EMIRATES = [
   'Dubai',

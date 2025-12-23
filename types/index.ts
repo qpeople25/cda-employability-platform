@@ -1,4 +1,4 @@
-export type DimensionKey =
+export type FactorKey =
   | 'motivation'
   | 'career'
   | 'search'
@@ -8,20 +8,20 @@ export type DimensionKey =
   | 'resilience'
   | 'support';
 
-export type DimensionScores = Record<DimensionKey, number>;
+export type FactorScores = Record<FactorKey, number>;
 
 export type ReadinessCategory = 'A' | 'B' | 'C';
 
 export type SessionType = 'baseline' | 'follow_up';
 
-export type BarrierSeverity = 'High' | 'Medium' | 'Low';
+export type BarrierSeverity = 'Critical' | 'High' | 'Medium' | 'Low';
 
 export type BarrierSource = 'auto' | 'manual';
 
 export type BarrierStatus = 'active' | 'resolved';
 
-export interface DimensionConfig {
-  key: DimensionKey;
+export interface FactorConfig {
+  key: FactorKey;
   label: string;
   description: string;
   weight: number;
@@ -32,7 +32,7 @@ export interface BarrierSuggestion {
   code: string;
   label: string;
   severity: BarrierSeverity;
-  dimension: DimensionKey;
+  factor: FactorKey;
 }
 
 export interface ParticipantWithStatus {

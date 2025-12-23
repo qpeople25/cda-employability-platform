@@ -1,10 +1,10 @@
-import { DimensionKey, BarrierSuggestion } from '@/types';
+import { FactorKey, BarrierSuggestion } from '@/types';
 
 /**
- * Maps dimensions to suggested barriers when scores are low (≤ 3)
- * This configuration determines which barriers are auto-suggested based on domain scores
+ * Maps factors to suggested barriers when scores are low (≤ 3)
+ * This configuration determines which barriers are auto-suggested based on factor scores
  */
-export const DIMENSION_BARRIER_SUGGESTIONS: Record<DimensionKey, string[]> = {
+export const FACTOR_BARRIER_SUGGESTIONS: Record<FactorKey, string[]> = {
   motivation: ['low_motivation', 'unrealistic_expectations'],
   career: ['lack_career_direction', 'limited_work_experience'],
   search: ['no_cv', 'no_job_portal_activity', 'low_interview_confidence'],
@@ -16,10 +16,10 @@ export const DIMENSION_BARRIER_SUGGESTIONS: Record<DimensionKey, string[]> = {
 };
 
 /**
- * Get suggested barriers for a given dimension and score
+ * Get suggested barriers for a given factor and score
  */
 export function getSuggestedBarriers(
-  dimension: DimensionKey,
+  factor: FactorKey,
   score: number,
   barrierBank: Array<{ id: string; code: string; label: string; defaultSeverity: string }>
 ): BarrierSuggestion[] {
@@ -28,7 +28,7 @@ export function getSuggestedBarriers(
     return [];
   }
   
-  const suggestedCodes = DIMENSION_BARRIER_SUGGESTIONS[dimension] || [];
+  const suggestedCodes = FACTOR_BARRIER_SUGGESTIONS[factor] || [];
   
   return suggestedCodes
     .map(code => {
@@ -39,8 +39,8 @@ export function getSuggestedBarriers(
         barrierBankId: barrier.id,
         code: barrier.code,
         label: barrier.label,
-        severity: barrier.defaultSeverity as 'High' | 'Medium' | 'Low',
-        dimension,
+        severity: barrier.defaultSeverity as 'Critical' | 'High' | 'Medium' | 'Low',
+        factor,
       };
     })
     .filter((b): b is BarrierSuggestion => b !== null);

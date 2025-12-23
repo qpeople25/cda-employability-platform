@@ -4,7 +4,8 @@ import { getCurrentUser } from '@/lib/auth';
 import * as XLSX from 'xlsx';
 
 export async function GET(request: Request) {
-  // Temporarily disabled during migration to dateOfBirth
+  // Temporarily disabled during migration to sub-component scoring (24 scores)
+  // TODO: Update to export all 24 sub-component scores + factor averages
   return NextResponse.json(
     { error: 'Excel export is temporarily disabled. Please use CSV exports.' },
     { status: 503 }

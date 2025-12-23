@@ -45,7 +45,8 @@ model Participant {
   firstName String
   lastName  String
   gender    String
-  dateOfBirth DateTime // Changed from ageRange
+  dateOfBirth DateTime? // Optional to allow migration
+  ageRange  String?   // Keep temporarily for migration
   education String
   emirate   String
   phone     String?
@@ -76,17 +77,47 @@ model Session {
   occurredAt    DateTime @default(now())
   sessionType   String   @default("baseline") // "baseline" | "follow_up"
   
-  // Coach scores (1-7)
-  scoreMotivation     Int
-  scoreCareer         Int
-  scoreSearch         Int
-  scoreEmployability  Int
-  scoreLearning       Int
-  scoreFinancial      Int
-  scoreResilience     Int
-  scoreSupport        Int
+  // FACTOR 1: Mindset & Motivation - Sub-Component Scores
+  scoreMotivationToWork      Int?  // Desire to work, urgency, willingness to take action
+  scoreMotivationConsistency Int?  // Ability to stay committed, overcome setbacks
+  scoreMotivationOwnership   Int?  // Taking responsibility vs waiting for others
   
-  // Coach notes per domain
+  // FACTOR 2: Career Awareness & Direction - Sub-Component Scores
+  scoreCareerClarity         Int?  // Understanding what job they want
+  scoreCareerSectorAwareness Int?  // Knowing available roles and industry expectations
+  scoreCareerRoleFit         Int?  // Understanding day-to-day responsibilities
+  
+  // FACTOR 3: Job Search Skills & Application - Sub-Component Scores
+  scoreSearchApplicationSkills Int?  // Ability to find, select, and apply properly
+  scoreSearchInterviewReadiness Int? // Preparedness and confidence in interactions
+  scoreSearchStrategy          Int?  // Consistency, methods, quality of practice
+  
+  // FACTOR 4: Employability & Workplace Skills - Sub-Component Scores
+  scoreEmployabilityCommunication Int?  // English & communication skills
+  scoreEmployabilityDigitalSkills Int?  // Microsoft Office, email, systems
+  scoreEmployabilityWorkplace     Int?  // Punctuality, teamwork, following instructions
+  
+  // FACTOR 5: Personal Development - Sub-Component Scores
+  scoreLearningAwareness    Int?  // Understanding strengths, weaknesses, improvement areas
+  scoreLearningGrowthMindset Int? // Openness to feedback and training
+  scoreLearningGoalSetting   Int? // Ability to set and follow goals
+  
+  // FACTOR 6: Financial Independence - Sub-Component Scores
+  scoreFinancialPressure      Int?  // Urgency to work due to obligations
+  scoreFinancialExpectations  Int?  // Salary expectations vs market reality
+  scoreFinancialFlexibility   Int?  // Accepting entry-level opportunities
+  
+  // FACTOR 7: Confidence & Self-Management - Sub-Component Scores
+  scoreResilienceConfidence      Int?  // Self-confidence in employment settings
+  scoreResilienceStressManagement Int? // Handling setbacks, pressure, unfamiliar environments
+  scoreResilienceIndependence    Int?  // Managing time, tasks, expectations independently
+  
+  // FACTOR 8: Social Support & Environment - Sub-Component Scores
+  scoreSupportFamilyApproval Int?  // Family approval, especially private sector
+  scoreSupportCultural       Int?  // Environmental or cultural constraints
+  scoreSupportSystem         Int?  // Childcare, transportation, social network
+  
+  // Coach notes per factor (overall notes, not per sub-component)
   notesMotivation     String
   notesCareer         String
   notesSearch         String
@@ -97,8 +128,8 @@ model Session {
   notesSupport        String
   
   // Computed fields
-  readinessIndex    Int
-  readinessCategory String // "A" | "B" | "C"
+  readinessIndex    Int    // Sum of 24 sub-component scores (max: 168, min: 24)
+  readinessCategory String // "A" (126+) | "B" (84-125) | "C" (0-83)
   
   // Optional fields
   nextTouchpoint    DateTime?
